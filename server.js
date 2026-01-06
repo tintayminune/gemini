@@ -1,12 +1,12 @@
 const express = require('express');
 const cors = require('cors');
-const fetch = require('node-fetch');
+const fetch = require('node-fetch');  // node-fetch v2 funciona perfecto con require
 
 const app = express();
-app.use(cors());               // Permite peticiones desde tu frontend
-app.use(express.json());       // Para leer JSON en el body
+app.use(cors());
+app.use(express.json());
 
-// La clave real se carga desde variables de entorno en Render (no aquí)
+// La clave real viene de variables de entorno (Render)
 const GEMINI_KEY = process.env.GEMINI_API_KEY;
 
 app.post('/gemini', async (req, res) => {
@@ -43,12 +43,12 @@ app.post('/gemini', async (req, res) => {
 
     res.json({ reply });
   } catch (error) {
-    console.error('Error:', error);
+    console.error('Error en Gemini:', error.message);
     res.status(500).json({ error: 'Error al conectar con la IA 😔 Intenta más tarde' });
   }
 });
 
-// Puerto que usa Render (o 3000 local)
+// Puerto que usa Render (dinámico)
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
   console.log(`API escuchando en puerto ${port}`);
