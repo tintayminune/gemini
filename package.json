@@ -1,7 +1,7 @@
 {
   "name": "gemini-proxy-tintay",
   "version": "1.0.0",
-  "description": "Proxy para Gemini en Costumbres Tintay",
+  "description": "Proxy seguro para Gemini API - Costumbres Tintay",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
@@ -13,5 +13,7 @@
   },
   "engines": {
     "node": ">=18.0.0"
-  }
+  },
+  "author": "Tu nombre",
+  "license": "ISC"
 }
